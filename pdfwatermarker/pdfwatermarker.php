@@ -18,9 +18,39 @@ class PDFWatermark {
 	private $_width;
 
 	function __construct($file) {
-		$this->_file = $file;
-		
+
+		$this->_file = $this->_prepareImage($file);
 		$this->_getImageSize( $this->_file );
+	}
+	
+	private function _prepareImage($file) {
+		
+		$imagetype = exif_imagetype( $file );
+		$path =  sys_get_temp_dir() . '/' . uniqid() . '.png';
+		
+		switch( $imagetype ) {
+			
+			case IMAGETYPE_JPEG: 
+				$image = imagecreatefromjpeg($file);
+				imageinterlace($image,false);
+				imagejpeg($image, $path);
+				imagedestroy($image);
+				break;
+				
+			case IMAGETYPE_PNG:
+				$image = imagecreatefrompng($file);
+				imageinterlace($image,false);
+				imagesavealpha($image,true);
+				imagepng($image, $path);
+				imagedestroy($image);
+				break;
+			default:
+				throw new Exception("Unsupported image type");
+				break;
+		};
+		
+		return $path;
+		
 	}
 	
 	private function _getImageSize($image) {
@@ -57,7 +87,20 @@ class PDFWatermarker {
 		$this->_tempPdf = new FPDI();
 		$this->_watermark = $watermark;
 		
+		$this->_validateAssets();
+		
 		$this->setWatermarkPosition();
+	}
+	
+	private function _validateAssets() {
+		
+		if ( !file_exists( $this->_originalPdf ) ) {
+			throw new Exception("Inputted PDF file doesn't exist");
+		}
+		else if ( !file_exists( $this->_watermark->getFilePath() ) ) {
+			throw new Exception("Watermark doesn't exist.");
+		}
+		
 	}
 	
 	/**
