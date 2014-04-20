@@ -1,7 +1,7 @@
 # PDF Watermarker
 PDFWatermarker is a PHP class that enables you to add an image as a watermark to existing PDF files. It uses FPDF that allows you to write PDF files and FPDI that allows you to import existing PDF documents into FPDF.
 
-It allows you to:
+Using this plugin, you can:
 
 * Use jpg and png ( with alpha channels ) files as watermarks at a setting of 96 DPI
 * Easily position the watermark on the pages of the PDF file
