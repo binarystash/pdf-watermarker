@@ -8,7 +8,7 @@ It allows you to:
 
 ## Installation
 
-1. Include the files in your project. 
+Include the files in your project. 
 
 ``` php
 <?php
