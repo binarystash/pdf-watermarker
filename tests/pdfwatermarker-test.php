@@ -3,6 +3,7 @@
 require_once("../fpdf/fpdf.php");
 require_once("../fpdi/fpdi.php");
 require_once("../pdfwatermarker/pdfwatermarker.php");
+require_once("../pdfwatermarker/pdfwatermark.php");
 
 class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 {
