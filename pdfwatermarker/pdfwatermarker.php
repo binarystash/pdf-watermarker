@@ -66,8 +66,10 @@ class PDFWatermarker {
 		else {
 			$orientation = "P";
 		}
-		
-		$this->_tempPdf->addPage("P",array($templateDimension['w'],$templateDimension['h']));
+
+	        $this->_tempPdf->DefOrientation = $orientation;
+
+		$this->_tempPdf->addPage($orientation,array($templateDimension['w'],$templateDimension['h']));
 		$this->_tempPdf->useTemplate($templateId);
 		
 		$wWidth = ($this->_watermark->getWidth() / 96) * 25.4; //in mm
