@@ -37,7 +37,7 @@ $watermark->setAsBackground();
 $watermarker = new PDFWatermarker('C:\test.pdf','C:\output.pdf',$watermark); 
  
 //Save the new PDF to its specified location
-$watermarker->watermarkPdf(); 
+$watermarker->savePdf(); 
 ?>
 ```
 
