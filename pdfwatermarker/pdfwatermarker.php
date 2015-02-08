@@ -18,6 +18,15 @@ class PDFWatermarker {
 	private $_tempPdf;
 	private $_watermark;
 	
+	/**
+	 * Creates an instance of the watermarker
+	 *
+	 * @param string $originalPDF - inputted PDF path
+	 * @param string $newPDF - outputted PDF path
+	 * @param mixed $watermark Watermark - watermark object
+	 *
+	 * @return void
+	 */
 	public function __construct($originalPdf,$newPdf,$watermark) {
 		
 		$this->_originalPdf = $originalPdf;

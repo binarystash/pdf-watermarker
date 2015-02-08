@@ -18,7 +18,14 @@ class PDFWatermark {
 	private $_width;
 	private $_position;
 	private $_asBackground;
-
+	
+	/**
+	 * Creates an instance of the watermark
+	 *
+	 * @param string $file - path to the image file
+	 *
+	 * @return void
+	 */
 	function __construct($file) {
 
 		$this->_file = $this->_prepareImage($file);
