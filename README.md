@@ -19,19 +19,22 @@ require_once('fpdi/fpdi.php');
 require_once("pdfwatermarker/*");
 ```
 
-## Usage
+##Sample Usage
 
 ``` php
 <?php
 
 //Specify path to image
 $watermark = new PDFWatermark('C:\myimage.png'); 
- 
+
+//Set the position
+$watermark->setPosition('bottomleft');
+
+//Place watermark behind original PDF content. Default behavior places it over the content.
+$watermark->setAsBackground();
+
 //Specify the path to the existing pdf, the path to the new pdf file, and the watermark object
 $watermarker = new PDFWatermarker('C:\test.pdf','C:\output.pdf',$watermark); 
- 
-//Set the position
-$watermarker->setWatermarkPosition('bottomleft');
  
 //Save the new PDF to its specified location
 $watermarker->watermarkPdf(); 
@@ -45,6 +48,8 @@ Five positions can be used. 'center' is the default.
 * topright
 * bottomright
 * bottomleft
+
+See the [API Documentation](https://github.com/binarystash/pdf-watermarker/wiki/API-Documentation) more details.
 
 ## Support
 

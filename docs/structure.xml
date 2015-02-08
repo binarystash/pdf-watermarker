@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.1">
+  <partials/>
+  <file path="pdfwatermark.php" generated-path="pdfwatermark.html" hash="8934a63effba94e6edb618bc1012eab3" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="14" package="Default">
+      <extends/>
+      <name>PDFWatermark</name>
+      <full_name>\PDFWatermark</full_name>
+      <docblock line="14">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="14" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="16" package="Default">
+        <name>$_file</name>
+        <full_name>\PDFWatermark::_file</full_name>
+        <default></default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="17" package="Default">
+        <name>$_height</name>
+        <full_name>\PDFWatermark::_height</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="18" package="Default">
+        <name>$_width</name>
+        <full_name>\PDFWatermark::_width</full_name>
+        <default></default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="19" package="Default">
+        <name>$_position</name>
+        <full_name>\PDFWatermark::_position</full_name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="20" package="Default">
+        <name>$_asBackground</name>
+        <full_name>\PDFWatermark::_asBackground</full_name>
+        <default></default>
+        <docblock line="20">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="22" package="Default">
+        <name>__construct</name>
+        <full_name>\PDFWatermark::__construct()</full_name>
+        <docblock line="22">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$file</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="36" package="Default">
+        <name>_prepareImage</name>
+        <full_name>\PDFWatermark::_prepareImage()</full_name>
+        <docblock line="36">
+          <description>Configure or check the image's properties</description>
+          <long-description></long-description>
+          <tag name="return" line="36" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$file</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="71" package="Default">
+        <name>_getImageSize</name>
+        <full_name>\PDFWatermark::_getImageSize()</full_name>
+        <docblock line="71">
+          <description>Assess the watermark's dimensions</description>
+          <long-description></long-description>
+          <tag name="return" line="71" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$image</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="84" package="Default">
+        <name>setPosition</name>
+        <full_name>\PDFWatermark::setPosition()</full_name>
+        <docblock line="84">
+          <description>Set the watermark's position</description>
+          <long-description></long-description>
+          <tag name="param" line="84" description="&lt;ul&gt;&#10;&lt;li&gt;'center','topright', 'topleft', 'bottomright', 'bottomleft'&lt;/li&gt;&#10;&lt;/ul&gt;" type="string" variable="$position">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="84" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$position</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="93" package="Default">
+        <name>setAsBackground</name>
+        <full_name>\PDFWatermark::setAsBackground()</full_name>
+        <docblock line="93">
+          <description>Apply the watermark below the PDF's content</description>
+          <long-description></long-description>
+          <tag name="return" line="93" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="102" package="Default">
+        <name>setAsOverlay</name>
+        <full_name>\PDFWatermark::setAsOverlay()</full_name>
+        <docblock line="102">
+          <description>Apply the watermark over the PDF's content</description>
+          <long-description></long-description>
+          <tag name="return" line="102" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="111" package="Default">
+        <name>usedAsBackground</name>
+        <full_name>\PDFWatermark::usedAsBackground()</full_name>
+        <docblock line="111">
+          <description>Checks if the watermark is used as a background</description>
+          <long-description></long-description>
+          <tag name="return" line="111" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="120" package="Default">
+        <name>getPosition</name>
+        <full_name>\PDFWatermark::getPosition()</full_name>
+        <docblock line="120">
+          <description>Returns the watermark's position</description>
+          <long-description></long-description>
+          <tag name="return" line="120" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="129" package="Default">
+        <name>getFilePath</name>
+        <full_name>\PDFWatermark::getFilePath()</full_name>
+        <docblock line="129">
+          <description>Returns the watermark's file path</description>
+          <long-description></long-description>
+          <tag name="return" line="129" description="" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="138" package="Default">
+        <name>getHeight</name>
+        <full_name>\PDFWatermark::getHeight()</full_name>
+        <docblock line="138">
+          <description>Returns the watermark's height</description>
+          <long-description></long-description>
+          <tag name="return" line="138" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="147" package="Default">
+        <name>getWidth</name>
+        <full_name>\PDFWatermark::getWidth()</full_name>
+        <docblock line="147">
+          <description>Returns the watermark's width</description>
+          <long-description></long-description>
+          <tag name="return" line="147" description="" type="integer">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="14" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="22" code="PPC:ERR-50015">Argument $file is missing from the Docblock of __construct</error>
+      <error line="22" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="36" code="PPC:ERR-50015">Argument $file is missing from the Docblock of _prepareImage</error>
+      <error line="71" code="PPC:ERR-50015">Argument $image is missing from the Docblock of _getImageSize</error>
+      <error line="84" code="PPC:ERR-50015">Argument $position is missing from the Docblock of setPosition</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $_file</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $_height</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $_width</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $_position</error>
+      <error line="20" code="PPC:ERR-50007">No summary for property $_asBackground</error>
+    </parse_markers>
+    <source>eJytVltv4kYUfk6k/IejCAkSeZPuPu522zpggluCLdtsGlUrZOwxno3xuJ5xWFrtf+85Y0NwAnuJKpHAnOt3rjM//1qkxcnx5fnJcZAyuLEDGPOI5ZJBDw9nJ8cnx31RrEu+SBX0ojN489PrN3DF87Bc+yqUKUm4rFxyKbnIgUtIWcnma1iUYa5YbEBSMgYigSgNywUzQAkI8zUUrJSoIOYq5DnPFxBChJ5IUqVoRopErcKSoXAMoZQi4iHag1hE1ZLlKlTkL+EZk9BTCP7UbzROz7STmIUZ8ByIt2HBiqtUVApKJlXJI7JhoFCUVTFh2LAzvuSNB1LX4UsyWkmMgHAasBQxT+ib6bCKap5xmRoQczI9rxQSJRF1Pg2K41KUIFmWkQWOuHWsj+i0DHkpKKGqSZH2u0rFsh0JpiipyhxdMq0TC0yZ9viJRYooJJ6ILBMrCi0SecwpIvmWakblDufigelo6vrmQiHYGgSVoHisa8OSaYjo56xJGXrGBIc7AZUEQCosPcfsF6LUHp8GeqERjCzwnWFwa3oW2D64nvPBHlgDODV9PJ8acGsHI2caAEp45iS4A2cI5uQO/rAnAwOsP13P8n1wPLBv3LFtIc2e9MfTgT25hivUmzjYzjb2MRoNHCCHjSnb8snYjeX1R3g0r+yxHdwZMLSDCdkcolETXNML7P50bHrgTj3X8S10P0CzE3sy9NCLdWNNggv0ijSwPuAB/JE5HmtX5hTRexpf33HvPPt6FMDIGQ8sJF5ZiMy8Glu1KwyqPzbtGwMG5o15bWktB614WqxBdzuyNAn9mfjpB7YzoTD6ziTw8GhglF6wVb21fcsA07N9SsjQc9A8pRM1HG0E9SZWbYVSDa2KoAidp771iGVgmWO05ZPyrjDW8/ySahplOKngDoa3OKvlMizv4V+iHxUlf0ASdGY0se9alJRR97VpKx6rtE0qhNT926aG8iqM7helqPL4nXaVVLmea5jNsOdxFqtI9Trk9qwBc9Sh9n71i8YC72FzLEpWYHfay3DBGo13u+ILpjTP5/+wHrSM1IK7whu4aL+LGwDT0W0Z2wWOMkmYSZ2XL/iHn8tz3MlHcA59kSd8UeHE43BFKYvu9ShxAtLFGS0Fjqmi4dPytdJvJVO4HOBB8FhTLneS9pigPQFTippAtAu1LihF7DNPZlsCBr8TdacIVYoyINeScjRTbFnMYl72zuACupdd/F/l/G8e14SLIl90t/mSuHOjFC0+umtAaPZRFOJlZNNQBHeuNfvdta7fguY0CNGz/o5KhtElpVh+Kthit35HR1qAUxGyMMJQ9dnQOW+J1Jo1F3RcLXZMt4ZYNxIb1hwd3ze/90F2J9dvvw4YE/IyvDJ8wFuuSMONCHZ7W0KbfnlAMUvCKlMNfpWWYgU5W4H1OWIFNVHvdJrLqqBNT7eBjo+KePrc2JdtzZvu1Hg2xKd9b0rJcJdQr682ywT7PeZ4+dOVJH+83Vvz24Rct1oHb7v3gPw6qzv81szqrUQLg8u/fvrYYtVLrOG9/rhvkn2mnoWz2RK7weBIhkugRwRe253tHnkF20VidJUo9J3dNYB+ZyzRP+dCKbHccuqjZn4zW/ql8pgsyZTbeO5tMWyy9XzFdXa387NSFkW2boeObwh8l2ga3haYCFzVCoN7AUxzZ5H2niB8smRpOr4XID6Nyv8Jn/NAc7z+BrjDNwAtfQk8eYIQexafo/Q4xrfzfGtqD8S5ENlBiGRjXw43Q7oH7T6UnhZ/PrD7OrwxXbf4QWCLnRbcj+lrTXcIj764aPG8CNAQtV1UPgBo87j5XjD11tiDhDetdgDGSOsdAPH4nvpeGHqv/TiKW1I7AGL7gEMMX/4DPkVLiA==</source>
+  </file>
+  <file path="pdfwatermarker.php" generated-path="pdfwatermarker.html" hash="09d65090dff08be03f4712435e478405" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="14" package="Default">
+      <extends/>
+      <name>PDFWatermarker</name>
+      <full_name>\PDFWatermarker</full_name>
+      <docblock line="14">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="14" description="Default"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="16" package="Default">
+        <name>$_originalPdf</name>
+        <full_name>\PDFWatermarker::_originalPdf</full_name>
+        <default></default>
+        <docblock line="16">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="17" package="Default">
+        <name>$_newPdf</name>
+        <full_name>\PDFWatermarker::_newPdf</full_name>
+        <default></default>
+        <docblock line="17">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="18" package="Default">
+        <name>$_tempPdf</name>
+        <full_name>\PDFWatermarker::_tempPdf</full_name>
+        <default></default>
+        <docblock line="18">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="" line="19" package="Default">
+        <name>$_watermark</name>
+        <full_name>\PDFWatermarker::_watermark</full_name>
+        <default></default>
+        <docblock line="19">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="21" package="Default">
+        <name>__construct</name>
+        <full_name>\PDFWatermarker::__construct()</full_name>
+        <docblock line="21">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$originalPdf</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$newPdf</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$watermark</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="37" package="Default">
+        <name>_validateAssets</name>
+        <full_name>\PDFWatermarker::_validateAssets()</full_name>
+        <docblock line="37">
+          <description>Ensures that the watermark and the PDF file are valid</description>
+          <long-description></long-description>
+          <tag name="return" line="37" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="53" package="Default">
+        <name>_updatePDF</name>
+        <full_name>\PDFWatermarker::_updatePDF()</full_name>
+        <docblock line="53">
+          <description>Loop through the pages while applying the watermark</description>
+          <long-description></long-description>
+          <tag name="return" line="53" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="67" package="Default">
+        <name>_watermarkPage</name>
+        <full_name>\PDFWatermarker::_watermarkPage()</full_name>
+        <docblock line="67">
+          <description>Apply the watermark to each page on the PDF file</description>
+          <long-description></long-description>
+          <tag name="param" line="67" description="&lt;ul&gt;&#10;&lt;li&gt;page number&lt;/li&gt;&#10;&lt;/ul&gt;" type="integer" variable="$page_number">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="67" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$page_number</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="110" package="Default">
+        <name>_calculateWatermarkCoordinates</name>
+        <full_name>\PDFWatermarker::_calculateWatermarkCoordinates()</full_name>
+        <docblock line="110">
+          <description>Calculate the coordinates of the watermark's position</description>
+          <long-description></long-description>
+          <tag name="param" line="110" description="&lt;ul&gt;&#10;&lt;li&gt;watermark's width&lt;/li&gt;&#10;&lt;/ul&gt;" type="integer" variable="$wWidth">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="110" description="&lt;ul&gt;&#10;&lt;li&gt;watermark's height&lt;/li&gt;&#10;&lt;/ul&gt;" type="integer" variable="$wHeight">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="110" description="&lt;ul&gt;&#10;&lt;li&gt;page width&lt;/li&gt;&#10;&lt;/ul&gt;" type="integer" variable="$tWidth">
+            <type>integer</type>
+          </tag>
+          <tag name="param" line="110" description="&lt;p&gt;-page height&lt;/p&gt;" type="integer" variable="$Height">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="110" description="- coordinates of the watermark's position" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$wWidth</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$wHeight</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$tWidth</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$tHeight</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="143" package="Default">
+        <name>savePdf</name>
+        <full_name>\PDFWatermarker::savePdf()</full_name>
+        <docblock line="143">
+          <description>Save the PDF to the specified location</description>
+          <long-description></long-description>
+          <tag name="return" line="143" description="" type="void">
+            <type>void</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="14" code="PPC:ERR-50005">No summary for class ""</error>
+      <error line="21" code="PPC:ERR-50015">Argument $originalPdf is missing from the Docblock of __construct</error>
+      <error line="21" code="PPC:ERR-50015">Argument $newPdf is missing from the Docblock of __construct</error>
+      <error line="21" code="PPC:ERR-50015">Argument $watermark is missing from the Docblock of __construct</error>
+      <error line="21" code="PPC:ERR-50008">No summary for method ""</error>
+      <error line="67" code="PPC:ERR-50015">Argument $page_number is missing from the Docblock of _watermarkPage</error>
+      <error line="110" code="PPC:ERR-50015">Argument $wWidth is missing from the Docblock of _calculateWatermarkCoordinates</error>
+      <error line="16" code="PPC:ERR-50007">No summary for property $_originalPdf</error>
+      <error line="17" code="PPC:ERR-50007">No summary for property $_newPdf</error>
+      <error line="18" code="PPC:ERR-50007">No summary for property $_tempPdf</error>
+      <error line="19" code="PPC:ERR-50007">No summary for property $_watermark</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="global" full_name="global"/>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>
