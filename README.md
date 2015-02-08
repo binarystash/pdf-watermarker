@@ -19,7 +19,7 @@ require_once('fpdi/fpdi.php');
 require_once("pdfwatermarker/*");
 ```
 
-##Sample Usage
+## Usage
 
 ``` php
 <?php
@@ -49,7 +49,7 @@ Five positions can be used. 'center' is the default.
 * bottomright
 * bottomleft
 
-See the [API Documentation](https://github.com/binarystash/pdf-watermarker/wiki/API-Documentation) more details.
+See the [API Documentation](https://github.com/binarystash/pdf-watermarker/wiki/API-Documentation) for more details.
 
 ## Support
 
