@@ -5,7 +5,7 @@ PDFWatermarker is a PHP class that enables you to add an image as a watermark to
 
 Using this plugin, you can:
 
-* Use jpg and png ( with alpha channels ) files as watermarks at a setting of 96 DPI
+* Use jpg and png ( with alpha channels ) files with a 96 DPI resolution
 * Easily position the watermark on the pages of the PDF file
 
 ## Installation
