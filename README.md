@@ -24,7 +24,7 @@ require_once("pdfwatermarker/*");
 ``` php
 <?php
 
-//Specify path to image. The image must have a 96 DPI resolution
+//Specify path to image. The image must have a 96 DPI resolution.
 $watermark = new PDFWatermark('C:\myimage.png'); 
 
 //Set the position
