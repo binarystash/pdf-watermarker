@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "53e0857ce7f4cea73b356e82cdc28b1c",
+    "hash": "6529e2989a0ad42fe76880ef8ec89418",
     "packages": [],
     "packages-dev": [
         {
@@ -326,6 +326,54 @@
                 "parser"
             ],
             "time": "2015-01-24 13:01:47"
+        },
+        {
+            "name": "evert/phpdoc-md",
+            "version": "0.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/evert/phpdoc-md.git",
+                "reference": "cd806e763c43503e10e87b8f529ffc50f5abcc87"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/evert/phpdoc-md/zipball/cd806e763c43503e10e87b8f529ffc50f5abcc87",
+                "reference": "cd806e763c43503e10e87b8f529ffc50f5abcc87",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "twig/twig": "1.*"
+            },
+            "bin": [
+                "bin/phpdocmd"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHPDocMD": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Evert Pot",
+                    "email": "evert@rooftopsolutions.nl",
+                    "homepage": "http://www.rooftopsolutions.nl/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP documentation generator, with markdown output",
+            "homepage": "https://github.com/evert/phpdoc-md",
+            "keywords": [
+                "markdown",
+                "php",
+                "phpdoc"
+            ],
+            "time": "2013-02-11 12:39:10"
         },
         {
             "name": "herrera-io/json",
@@ -999,16 +1047,16 @@
         },
         {
             "name": "phpdocumentor/phpdocumentor",
-            "version": "v2.8.1",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/phpDocumentor2.git",
-                "reference": "5920dd42a5a92e4486f342ba8ded979db149ceb2"
+                "reference": "1c6a3bd696de9153a0d8596e2fc26cf866ac9c2d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/5920dd42a5a92e4486f342ba8ded979db149ceb2",
-                "reference": "5920dd42a5a92e4486f342ba8ded979db149ceb2",
+                "url": "https://api.github.com/repos/phpDocumentor/phpDocumentor2/zipball/1c6a3bd696de9153a0d8596e2fc26cf866ac9c2d",
+                "reference": "1c6a3bd696de9153a0d8596e2fc26cf866ac9c2d",
                 "shasum": ""
             },
             "require": {
@@ -1049,7 +1097,7 @@
                 "zetacomponents/document": ">=1.3.1"
             },
             "require-dev": {
-                "behat/behat": "~2.4",
+                "behat/behat": "~3.0",
                 "mikey179/vfsstream": "~1.2",
                 "mockery/mockery": "~0.9@dev",
                 "phpunit/phpunit": "~4.0",
@@ -1094,7 +1142,7 @@
                 "documentation",
                 "phpdoc"
             ],
-            "time": "2014-11-11 14:08:43"
+            "time": "2015-02-22 17:09:31"
         },
         {
             "name": "phpdocumentor/reflection",

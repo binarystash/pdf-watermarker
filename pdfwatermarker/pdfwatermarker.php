@@ -17,6 +17,8 @@ class PDFWatermarker {
 	private $_newPdf;
 	private $_tempPdf;
 	private $_watermark;
+	private $_startPage;
+	private $_endPage;
 	
 	/**
 	 * Creates an instance of the watermarker
@@ -33,6 +35,8 @@ class PDFWatermarker {
 		$this->_newPdf = $newPdf;
 		$this->_tempPdf = new FPDI();
 		$this->_watermark = $watermark;
+		$this->_startPage = 1;
+		$this->_endPage = null;
 		
 		$this->_validateAssets();
 	}
@@ -60,20 +64,34 @@ class PDFWatermarker {
 	 * @return void
 	 */
 	private function _updatePDF() {
-		$pageCtr = $this->_tempPdf->setSourceFile($this->_originalPdf);
-		for($ctr = 1; $ctr <= $pageCtr; $ctr++){
-			$this->_watermarkPage($ctr);
+		
+		$totalPages = $this->_tempPdf->setSourceFile($this->_originalPdf);
+		$endPage = $this->_endPage !== null ? $this->_endPage : $totalPages;
+		
+		for($ctr = 1; $ctr <= $totalPages; $ctr++){
+			
+			$this->_importPage($ctr);
+			
+			if ( $ctr >= $this->_startPage && $ctr <= $endPage ) {
+				$this->_watermarkPage($ctr);
+			}
+			else {
+				$this->_watermarkPage($ctr, false);
+			}
+			
 		}
+		
 	}
 	
 	/**
-	 * Apply the watermark to each page on the PDF file
+	 * Import page
 	 *
 	 * @param int $page_number - page number
 	 *
 	 * @return void
 	 */
-	private function _watermarkPage($page_number) {
+	private function _importPage($page_number) {
+		
 		$templateId = $this->_tempPdf->importPage($page_number);
 		$templateDimension = $this->_tempPdf->getTemplateSize($templateId);
 		
@@ -84,9 +102,24 @@ class PDFWatermarker {
 			$orientation = "P";
 		}
 
-	        $this->_tempPdf->DefOrientation = $orientation;
+	    $this->_tempPdf->DefOrientation = $orientation;
 
 		$this->_tempPdf->addPage($orientation,array($templateDimension['w'],$templateDimension['h']));
+		
+	}
+	
+	/**
+	 * Apply the watermark to a specific page
+	 *
+	 * @param int $page_number - page number
+	 * @param bool $watermark_visible - (optional) Make the watermark visible. True by default.
+	 *
+	 * @return void
+	 */
+	private function _watermarkPage($page_number, $watermark_visible = true) {
+		
+		$templateId = $this->_tempPdf->importPage($page_number);
+		$templateDimension = $this->_tempPdf->getTemplateSize($templateId);
 		
 		$wWidth = ($this->_watermark->getWidth() / 96) * 25.4; //in mm
 		$wHeight = ($this->_watermark->getHeight() / 96) * 25.4; //in mm
@@ -95,15 +128,21 @@ class PDFWatermarker {
 																	$wHeight, 
 																	$templateDimension['w'], 
 																	$templateDimension['h']);
-																	
-		if ( $this->_watermark->usedAsBackground() ) {															
-			$this->_tempPdf->Image($this->_watermark->getFilePath(),$watermarkCoords[0],$watermarkCoords[1],-96);
-			$this->_tempPdf->useTemplate($templateId);
+							
+		if ( $watermark_visible ) {
+			if ( $this->_watermark->usedAsBackground() ) {															
+				$this->_tempPdf->Image($this->_watermark->getFilePath(),$watermarkCoords[0],$watermarkCoords[1],-96);
+				$this->_tempPdf->useTemplate($templateId);
+			}
+			else {
+				$this->_tempPdf->useTemplate($templateId);
+				$this->_tempPdf->Image($this->_watermark->getFilePath(),$watermarkCoords[0],$watermarkCoords[1],-96);
+			}
 		}
 		else {
 			$this->_tempPdf->useTemplate($templateId);
-			$this->_tempPdf->Image($this->_watermark->getFilePath(),$watermarkCoords[0],$watermarkCoords[1],-96);
 		}
+		
 	}
 	
 	/**
@@ -143,6 +182,22 @@ class PDFWatermarker {
 		
 		return array($x,$y);
 	}
+	
+	/**
+	 * Set page range
+	 *
+	 * @param int $startPage - the first page to be watermarked
+	 * @param int $endPage - (optional) the last page to be watermarked
+	 *
+	 * @return void
+	 */
+	public function setPageRange($startPage=1, $endPage=null) {
+		
+		$this->_startPage = $startPage;
+		$this->_endPage = $endPage;
+		
+	}
+	 
 	
 	/**
 	 * Save the PDF to the specified location

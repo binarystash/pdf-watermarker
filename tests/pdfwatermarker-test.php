@@ -12,6 +12,7 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
     public $watermark;
     public $watermarker;
     public $output;
+	public $output_multiple;
 	public $parent_directory;
 
     function setUp() {
@@ -21,8 +22,10 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
         $this->watermark = new PDFWatermark($this->parent_directory.'/../assets/star.png');
 
         $this->output = $this->parent_directory ."/../assets/test-output.pdf";
+		$this->output_multiple = $this->parent_directory ."/../assets/test-output-multiple.pdf";
 
         $this->watermarker = new PDFWatermarker($this->parent_directory.'/../assets/test.pdf', $this->output, $this->watermark); 
+		$this->watermarker_multiple = new PDFWatermarker($this->parent_directory.'/../assets/test-multipage.pdf', $this->output_multiple, $this->watermark); 
 		
     }
 	
@@ -97,6 +100,18 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
         $this->watermarker->savePdf(); 
         $this->assertTrue( file_exists($this->output) === true );
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-as-background.pdf') === filesize($this->output) );
+    }
+	
+	/*
+	 * Watermark specific pages
+	 *
+	 * @return void
+	 */
+	public function testSpecificPages() {
+		$this->watermarker_multiple->setPageRange(3,5);
+        $this->watermarker_multiple->savePdf(); 
+        $this->assertTrue( file_exists($this->output_multiple) === true );
+		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-multipage.pdf') === filesize($this->output_multiple) );
     }
 	
 }
