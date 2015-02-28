@@ -202,6 +202,8 @@ class PDFWatermarker {
 		
 		$end = $endPage !== null ? $endPage : $this->_getTotalPages();
 		
+		$this->_specificPages = array();
+		
 		for ($ctr = $startPage; $ctr <= $end; $ctr++ ) {
 			$this->_specificPages[] = $ctr;
 		}
