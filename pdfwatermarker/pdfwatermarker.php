@@ -35,8 +35,7 @@ class PDFWatermarker {
 		$this->_newPdf = $newPdf;
 		$this->_tempPdf = new FPDI();
 		$this->_watermark = $watermark;
-		$this->_startPage = 1;
-		$this->_endPage = null;
+		$this->_specificPages = array();
 		
 		$this->_validateAssets();
 	}
@@ -65,14 +64,14 @@ class PDFWatermarker {
 	 */
 	private function _updatePDF() {
 		
-		$totalPages = $this->_tempPdf->setSourceFile($this->_originalPdf);
+		$totalPages = $this->_getTotalPages();
 		$endPage = $this->_endPage !== null ? $this->_endPage : $totalPages;
 		
 		for($ctr = 1; $ctr <= $totalPages; $ctr++){
 			
 			$this->_importPage($ctr);
 			
-			if ( $ctr >= $this->_startPage && $ctr <= $endPage ) {
+			if ( in_array($ctr, $this->_specificPages) ) {
 				$this->_watermarkPage($ctr);
 			}
 			else {
@@ -81,6 +80,15 @@ class PDFWatermarker {
 			
 		}
 		
+	}
+	
+	/*
+	 * Get total number of pages
+	 *
+	 * @return int 
+	 */
+	private function _getTotalPages() {
+		return $this->_tempPdf->setSourceFile($this->_originalPdf);
 	}
 	
 	/**
@@ -193,8 +201,11 @@ class PDFWatermarker {
 	 */
 	public function setPageRange($startPage=1, $endPage=null) {
 		
-		$this->_startPage = $startPage;
-		$this->_endPage = $endPage;
+		$end = $endPage !== null ? $endPage : $this->_getTotalPages();
+		
+		for ($ctr = $startPage; $ctr <= $end; $ctr++ ) {
+			$this->_specificPages[] = $ctr;
+		}
 		
 	}
 	 
