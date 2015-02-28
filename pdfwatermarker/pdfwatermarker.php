@@ -17,8 +17,7 @@ class PDFWatermarker {
 	private $_newPdf;
 	private $_tempPdf;
 	private $_watermark;
-	private $_startPage;
-	private $_endPage;
+	private $_specificPages;
 	
 	/**
 	 * Creates an instance of the watermarker
