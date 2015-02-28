@@ -64,7 +64,6 @@ class PDFWatermarker {
 	private function _updatePDF() {
 		
 		$totalPages = $this->_getTotalPages();
-		$endPage = $this->_endPage !== null ? $this->_endPage : $totalPages;
 		
 		for($ctr = 1; $ctr <= $totalPages; $ctr++){
 			
