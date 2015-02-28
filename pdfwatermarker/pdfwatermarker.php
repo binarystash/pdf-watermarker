@@ -36,6 +36,7 @@ class PDFWatermarker {
 		$this->_watermark = $watermark;
 		$this->_specificPages = array();
 		
+		
 		$this->_validateAssets();
 	}
 
@@ -69,7 +70,7 @@ class PDFWatermarker {
 			
 			$this->_importPage($ctr);
 			
-			if ( in_array($ctr, $this->_specificPages) ) {
+			if ( in_array($ctr, $this->_specificPages ) || empty( $this->_specificPages ) ) {
 				$this->_watermarkPage($ctr);
 			}
 			else {
