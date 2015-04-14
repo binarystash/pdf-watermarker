@@ -34,11 +34,11 @@ class Position
     }
 
     /**
-     * @param WatermarkPosition $position
+     * @param Position $position
      *
      * @return bool
      */
-    public function equals(WatermarkPosition $position)
+    public function equals(Position $position)
     {
         return ($this->name === $position->getName());
     }
