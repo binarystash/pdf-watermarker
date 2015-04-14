@@ -44,6 +44,14 @@ class Position
     }
 
     /**
+     * @return string name
+     */
+    public function __toString()
+    {
+        return $this->name;
+    }
+
+    /**
      * @param $name
      * @param $arguments
      *
@@ -53,4 +61,5 @@ class Position
     {
         return new self($name);
     }
+
 }
