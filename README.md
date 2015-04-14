@@ -12,7 +12,7 @@ Installing using composer
 
 ``` bash
 
-> composer require binarystash/pdfwatermarker:^2.0
+> composer require binarystash/pdf-watermarker:^2.0
 
 ```
 
