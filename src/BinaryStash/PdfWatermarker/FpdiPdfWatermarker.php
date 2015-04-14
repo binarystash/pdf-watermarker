@@ -188,12 +188,32 @@ class FpdiPdfWatermarker implements PdfWatermarker
     }
 
     /**
-     * @param $toFile
+     * @param string $fileName
      * @return void
      */
-    public function savePdf($toFile)
+    public function savePdf($fileName = 'doc.pdf')
     {
         $this->process();
-        $this->fpfi->Output($toFile);
+        $this->fpfi->Output($fileName, 'F');
+    }
+
+    /**
+     * @param string $fileName
+     * @return void
+     */
+    public function downloadPdf($fileName = 'doc.pdf')
+    {
+        $this->process();
+        $this->fpfi->Output($fileName, 'D');
+    }
+
+    /**
+     * @param string $fileName
+     * @return void
+     */
+    public function stdOut($fileName = 'doc.pdf')
+    {
+        $this->process();
+        $this->fpfi->Output($fileName, 'I');
     }
 }

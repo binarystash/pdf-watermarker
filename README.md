@@ -34,8 +34,9 @@ $watermark = new Watermark('watermark.png');
 // Create a new watermarker
 $watermarker = new PDFWatermarker($pdf, $watermark); 
  
-//Save the new PDF to its specified location
-$watermarker->savePdf('output.pdf'); 
+// Save the new PDF to its specified location
+$watermarker->savePdf('output.pdf');
+
 ?>
 ```
 
@@ -59,6 +60,24 @@ $watermarker->setAsBackground();
 // Only Watermark specific range of pages
 // This would only watermark page 3 and 4
 $watermarker->setPageRange(3, 4);
+
+?>
+```
+
+## Output Options
+
+``` php
+<?php
+
+// The filename is optional for all output options
+$watermarker->savePdf();
+
+// Start a download of the PDF
+$watermarker->downloadPdf('output.pdf');
+
+// Send the PDF to standard out
+$watermarker->stdOut('output.pdf');
+
 ?>
 ```
 
