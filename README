@@ -14,7 +14,6 @@ Installing using composer
 
 > composer require binarystash/pdfwatermarker:^2.0
 
-```
 
 ## Usage
 
