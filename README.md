@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/binarystash/pdf-watermarker.svg?branch=master)](https://travis-ci.org/binarystash/pdf-watermarker)
-
 # PDF Watermarker
 PDFWatermarker enables you to add an image as a watermark to existing PDF files. It uses FPDF that allows you to write PDF files and FPDI that allows you to import existing PDF documents into FPDF.
 
@@ -10,13 +8,12 @@ Using it, you can:
 
 ## Installation
 
-Include the files in your project. 
+Installing using composer
 
-``` php
-<?php
-require_once('fpdf/fpdf.php');
-require_once('fpdi/fpdi.php');
-require_once("pdfwatermarker/*");
+``` bash
+
+> composer require binarystash/pdf-watermarker:^2.0
+
 ```
 
 ## Usage
@@ -24,34 +21,66 @@ require_once("pdfwatermarker/*");
 ``` php
 <?php
 
-//Specify path to image. The image must have a 96 DPI resolution.
-$watermark = new PDFWatermark('C:\myimage.png'); 
+use BinaryStash\PdfWatermarker\Pdf;
+use BinaryStash\PdfWatermarker\Watermark;
+use BinaryStash\PdfWatermarker\FpdiPdfWatermarker as PDFWatermarker;
 
-//Set the position
-$watermark->setPosition('bottomleft');
+// Specify path to the existing pdf
+$pdf = new Pdf('my.pdf');
 
-//Place watermark behind original PDF content. Default behavior places it over the content.
-$watermark->setAsBackground();
+// Specify path to image. The image must have a 96 DPI resolution.
+$watermark = new Watermark('watermark.png'); 
 
-//Specify the path to the existing pdf, the path to the new pdf file, and the watermark object
-$watermarker = new PDFWatermarker('C:\test.pdf','C:\output.pdf',$watermark); 
+// Create a new watermarker
+$watermarker = new PDFWatermarker($pdf, $watermark); 
  
-//Save the new PDF to its specified location
-$watermarker->savePdf(); 
+// Save the new PDF to its specified location
+$watermarker->savePdf('output.pdf');
+
 ?>
 ```
 
-Five positions can be used. 'center' is the default.
+## Options
 
-* center
-* topleft
-* topright
-* bottomright
-* bottomleft
+``` php
+<?php
 
-See the [API Documentation](https://github.com/binarystash/pdf-watermarker/wiki/API-Documentation) for more details.
+use BinaryStash\PdfWatermarker\Position;
+
+// Set the position of the watermark
+// All possible positions can be found in Position::options
+$watermarker->setPosition(new Position('BottomCenter'));
+
+// Alternatively
+$watermarker->setPosition(Position::BottomCenter());
+
+// Place watermark behind original PDF content. Default behavior places it over the content.
+$watermarker->setAsBackground();
+
+// Only Watermark specific range of pages
+// This would only watermark page 3 and 4
+$watermarker->setPageRange(3, 4);
+
+?>
+```
+
+## Output Options
+
+``` php
+<?php
+
+// The filename is optional for all output options
+$watermarker->savePdf();
+
+// Start a download of the PDF
+$watermarker->downloadPdf('output.pdf');
+
+// Send the PDF to standard out
+$watermarker->stdOut('output.pdf');
+
+?>
+```
 
 ## Support
 
 Report bugs at https://github.com/binarystash/pdf-watermarker/issues.
-
