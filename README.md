@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/binarystash/pdf-watermarker.svg?branch=master)](https://travis-ci.org/binarystash/pdf-watermarker)
 
 # PDF Watermarker
-PDFWatermarker is a PHP class that enables you to add an image as a watermark to existing PDF files. It uses FPDF that allows you to write PDF files and FPDI that allows you to import existing PDF documents into FPDF.
+PDFWatermarker enables you to add an image as a watermark to existing PDF files. It uses FPDF that allows you to write PDF files and FPDI that allows you to import existing PDF documents into FPDF.
 
-Using this plugin, you can:
+Using it, you can:
 
 * Use jpg and png ( with alpha channels ) files with a 96 DPI resolution
 * Easily position the watermark on the pages of the PDF file
