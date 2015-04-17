@@ -10,12 +10,16 @@ Using this plugin, you can:
 
 ## Installation
 
-Include the files in your project. 
+1. Place [composer.phar](https://getcomposer.org/composer.phar) in the folder you extracted the files to.
+
+2. Run php composer.phar install
+
+3. Include the files in your project. 
 
 ``` php
 <?php
-require_once('fpdf/fpdf.php');
-require_once('fpdi/fpdi.php');
+require_once('vendor/binarystash/fpdf/fpdf.php');
+require_once('vendor/setasign/fpdi/fpdi.php');
 require_once("pdfwatermarker/*");
 ```
 

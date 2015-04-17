@@ -2,6 +2,8 @@
     "require-dev": {
         "phpunit/phpunit": "4.0.*",
 		"phpdocumentor/phpdocumentor": "2.*",
-		"evert/phpdoc-md" : "~0.0.7"
+		"evert/phpdoc-md" : "~0.0.7",
+		"binarystash/fpdf": "dev-master",
+		"setasign/fpdi": "1.4.2"
     }
 }
