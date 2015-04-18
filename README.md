@@ -12,7 +12,7 @@ Using it, you can:
 
 1. Place [composer.phar](https://getcomposer.org/composer.phar) in the folder you extracted the files to.
 
-2. Run php composer.phar install
+2. Run 'php composer.phar install'
 
 3. Include the files in your project. 
 
