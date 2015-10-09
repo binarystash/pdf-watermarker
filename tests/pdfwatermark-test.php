@@ -47,5 +47,37 @@ class PDFWatermark_test extends PHPUnit_Framework_TestCase
 	public function testGetWidth() {
 		$this->assertTrue( $this->watermark->getWidth()== 200 );
 	}
+
+	public function testPrepareImagePng() {
+		$class = new ReflectionClass('PDFWatermark');
+		$method = $class->getMethod('_prepareImage');
+		$method->setAccessible(true);
+
+  		$fileExtension = substr($method->invokeArgs($this->watermark, [__DIR__ . '/test.png']), -4);
+
+  		$this->assertSame('.png', $fileExtension);
+	}
+
+	public function testPrepareImageJpg() {
+		$class = new ReflectionClass('PDFWatermark');
+		$method = $class->getMethod('_prepareImage');
+		$method->setAccessible(true);
+
+  		$fileExtension = substr($method->invokeArgs($this->watermark, [__DIR__ . '/test.jpg']), -4);
+
+  		$this->assertSame('.jpg', $fileExtension);
+	}
+
+	/**
+     * @expectedException Exception
+     * @expectedExceptionMessage Unsupported image type
+     */
+	public function testPrepareImageInvalidImage() {
+		$class = new ReflectionClass('PDFWatermark');
+		$method = $class->getMethod('_prepareImage');
+		$method->setAccessible(true);
+
+  		$fileExtension = $method->invokeArgs($this->watermark, [__DIR__ . '/test.tiff']);
+	}
 	
 }
