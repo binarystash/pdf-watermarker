@@ -43,11 +43,11 @@ class PDFWatermark {
 	private function _prepareImage($file) {
 		
 		$imagetype = exif_imagetype( $file );
-		$path =  sys_get_temp_dir() . '/' . uniqid() . '.png';
 		
 		switch( $imagetype ) {
 			
-			case IMAGETYPE_JPEG: 
+			case IMAGETYPE_JPEG:
+				$path =  sys_get_temp_dir() . '/' . uniqid() . '.jpg'; 
 				$image = imagecreatefromjpeg($file);
 				imageinterlace($image,false);
 				imagejpeg($image, $path);
@@ -55,6 +55,7 @@ class PDFWatermark {
 				break;
 				
 			case IMAGETYPE_PNG:
+				$path =  sys_get_temp_dir() . '/' . uniqid() . '.png';
 				$image = imagecreatefrompng($file);
 				imageinterlace($image,false);
 				imagesavealpha($image,true);
