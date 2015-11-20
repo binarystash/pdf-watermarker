@@ -29,11 +29,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		
     }
 	
-	/* 
-	 * Test default watermark configuration
-	 * 
-	 * @return void
-	 */
     public function testDefaultOptions() {
 		
         $this->watermarker->savePdf(); 
@@ -42,11 +37,17 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 
     }
 	
-	/* 
-	 * Test 'topright' watermark position
-	 * 
-	 * @return void
-	 */
+    public function testDefaultOptionsWithJPG() {
+		
+		$watermark_jpg = new PDFWatermark($this->parent_directory.'/../assets/star.jpg');
+		$watermarker_jpg = new PDFWatermarker($this->parent_directory.'/../assets/test.pdf', $this->output, $watermark_jpg); 
+		
+        $watermarker_jpg->savePdf(); 
+        $this->assertTrue( file_exists($this->output) === true );
+		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-from-jpg.pdf') === filesize($this->output) );
+
+    }
+	
     public function testTopRightPosition() {
 		$this->watermark->setPosition('topright');
         $this->watermarker->savePdf(); 
@@ -54,11 +55,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-topright-position.pdf') === filesize($this->output) );
     }
 	
-	/* 
-	 * Test 'topleft' watermark position
-	 * 
-	 * @return void
-	 */
     public function testTopLeftPosition() {
 		$this->watermark->setPosition('topleft');
         $this->watermarker->savePdf(); 
@@ -66,11 +62,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-topleft-position.pdf') === filesize($this->output) );
     }
 	
-	/* 
-	 * Test 'bottomright' watermark position
-	 * 
-	 * @return void
-	 */
     public function testBottomRightPosition() {
 		$this->watermark->setPosition('bottomright');
         $this->watermarker->savePdf(); 
@@ -78,11 +69,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-bottomright-position.pdf') === filesize($this->output) );
     }
 	
-	/* 
-	 * Test 'bottomleft' watermark position
-	 * 
-	 * @return void
-	 */
     public function testBottomLeftPosition() {
 		$this->watermark->setPosition('bottomleft');
         $this->watermarker->savePdf(); 
@@ -90,11 +76,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-bottomleft-position.pdf') === filesize($this->output) );
     }
 	
-	/* 
-	 * Test watermark as background
-	 * 
-	 * @return void
-	 */
     public function testAsBackground() {
 		$this->watermark->setAsBackground();
         $this->watermarker->savePdf(); 
@@ -102,11 +83,6 @@ class PDFWatermarker_test extends PHPUnit_Framework_TestCase
 		$this->assertTrue( filesize($this->parent_directory.'/../assets/output-as-background.pdf') === filesize($this->output) );
     }
 	
-	/*
-	 * Watermark specific pages
-	 *
-	 * @return void
-	 */
 	public function testSpecificPages() {
 		$this->watermarker_multiple->setPageRange(3,5);
         $this->watermarker_multiple->savePdf(); 

@@ -20,7 +20,8 @@ Using it, you can:
 <?php
 require_once('vendor/binarystash/fpdf/fpdf.php');
 require_once('vendor/setasign/fpdi/fpdi.php');
-require_once("pdfwatermarker/*");
+require_once('pdfwatermarker/pdfwatermarker.php');
+require_once('pdfwatermarker/pdfwatermark.php');
 ```
 
 ## Usage

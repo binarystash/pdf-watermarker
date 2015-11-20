@@ -53,7 +53,7 @@ class PDFWatermark_test extends PHPUnit_Framework_TestCase
 		$method = $class->getMethod('_prepareImage');
 		$method->setAccessible(true);
 
-  		$fileExtension = substr($method->invokeArgs($this->watermark, [__DIR__ . '/test.png']), -4);
+  		$fileExtension = substr($method->invokeArgs($this->watermark, [$this->parent_directory.'/../assets/star.png']), -4);
 
   		$this->assertSame('.png', $fileExtension);
 	}
@@ -63,7 +63,7 @@ class PDFWatermark_test extends PHPUnit_Framework_TestCase
 		$method = $class->getMethod('_prepareImage');
 		$method->setAccessible(true);
 
-  		$fileExtension = substr($method->invokeArgs($this->watermark, [__DIR__ . '/test.jpg']), -4);
+  		$fileExtension = substr($method->invokeArgs($this->watermark, [$this->parent_directory.'/../assets/star.jpg']), -4);
 
   		$this->assertSame('.jpg', $fileExtension);
 	}
@@ -77,7 +77,7 @@ class PDFWatermark_test extends PHPUnit_Framework_TestCase
 		$method = $class->getMethod('_prepareImage');
 		$method->setAccessible(true);
 
-  		$fileExtension = $method->invokeArgs($this->watermark, [__DIR__ . '/test.tiff']);
+  		$fileExtension = $method->invokeArgs($this->watermark, [$this->parent_directory.'/../assets/star.tif']);
 	}
 	
 }
