@@ -3,7 +3,7 @@
  * pdfwatermark.php
  * 
  * This class defines properties of a watermark
- * @author Binarystash <binarystash01@gmail.com
+ * @author Binarystash <binarystash01@gmail.com>
  * @version 1.0.0
  * @license https://opensource.org/licenses/MIT MIT
  */
