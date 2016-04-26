@@ -1,7 +1,7 @@
 vendor
-pdfwatermarker-test.php
-test-output.pdf
-output
+assets/test-output.pdf
+assets/test-output-multiple.pdf
 phpdocs
 phpdocsmarkdown
 manual
+.idea
