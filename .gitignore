@@ -5,3 +5,6 @@ output
 phpdocs
 phpdocsmarkdown
 manual
+composer.lock
+assets/test-output.pdf
+assets/test-output-multiple.pdf
