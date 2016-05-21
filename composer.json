@@ -1,6 +1,6 @@
 {
 	"name": "binarystash/pdf-watermarker",
-	"description": "Watermark or stamp PDF documents"
+	"description": "Watermark or stamp PDF documents",
 	"repositories": [
 		{
 			"type": "vcs",
