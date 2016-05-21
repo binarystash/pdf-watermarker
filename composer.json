@@ -1,21 +1,23 @@
 {
+	"name": "binarystash/pdf-watermarker",
+	"description": "Watermark or stamp PDF documents"
 	"repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/binarystash/fpdf"
-        },
 		{
-            "type": "vcs",
-            "url": "https://github.com/binarystash/fpdi"
-        }
-    ],
+			"type": "vcs",
+			"url": "https://github.com/binarystash/fpdf"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/binarystash/fpdi"
+		}
+	],
 	"require": {
 		"setasign/fpdf": "dev-master",
 		"setasign/fpdi": "dev-master"
 	},
-    "require-dev": {
-        "phpunit/phpunit": "4.0.*",
+	"require-dev": {
+		"phpunit/phpunit": "4.0.*",
 		"phpdocumentor/phpdocumentor": "2.*",
 		"evert/phpdoc-md" : "~0.0.7"
-    }
+	}
 }

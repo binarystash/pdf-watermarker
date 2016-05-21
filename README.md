@@ -18,8 +18,6 @@ Using it, you can:
 
 ``` php
 <?php
-require_once('vendor/binarystash/fpdf/fpdf.php');
-require_once('vendor/setasign/fpdi/fpdi.php');
 require_once('pdfwatermarker/pdfwatermarker.php');
 require_once('pdfwatermarker/pdfwatermark.php');
 ```
