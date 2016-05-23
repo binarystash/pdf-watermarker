@@ -4,10 +4,10 @@
  * 
  * This class applies PDFWatermark to the file
  * @author Binarystash <binarystash01@gmail.com>
- * @version 1.0.0
+ * @version 1.0.3
  * @license https://opensource.org/licenses/MIT MIT
  */
- 
+
 class PDFWatermarker {
 	
 	private $_originalPdf;
@@ -105,9 +105,7 @@ class PDFWatermarker {
 		else {
 			$orientation = "P";
 		}
-
-	    $this->_tempPdf->DefOrientation = $orientation;
-
+		
 		$this->_tempPdf->addPage($orientation,array($templateDimension['w'],$templateDimension['h']));
 		
 	}
@@ -215,7 +213,7 @@ class PDFWatermarker {
 	 */
 	public function savePdf() {
 		$this->_updatePDF();
-		$this->_tempPdf->Output($this->_newPdf);
+		$this->_tempPdf->Output("F",$this->_newPdf);
 	}
 }
 ?>
