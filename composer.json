@@ -1,6 +1,12 @@
 {
 	"name": "binarystash/pdf-watermarker",
+	"license": "MIT",
 	"description": "Watermark or stamp PDF documents",
+	"authors": [
+        {
+            "name": "BinaryStash"
+        }
+    ],
 	"require": {
 		"setasign/fpdf": "dev-master",
 		"setasign/fpdi": "dev-master"
@@ -9,5 +15,6 @@
 		"phpunit/phpunit": "4.0.*",
 		"phpdocumentor/phpdocumentor": "2.*",
 		"evert/phpdoc-md" : "~0.0.7"
-	}
+	},
+	"minimum-stability": "stable"
 }
